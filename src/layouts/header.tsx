@@ -6,8 +6,6 @@ import React from "react";
 const Header = () => {
   const { isLargeScreen, isTabScreen } = useGeneralStore();
 
-  console.log(isLargeScreen, isTabScreen);
-
   return (
     <div className="header">
       <div
