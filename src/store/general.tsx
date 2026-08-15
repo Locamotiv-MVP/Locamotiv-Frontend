@@ -9,6 +9,11 @@ interface GeneralStore {
   isLargeScreen: boolean;
   isMobileScreen: boolean;
   isTabScreen: boolean;
+  showHeroCountries: boolean;
+  isLoading: boolean;
+  selectedState: string;
+  selectedFeatured: string;
+  showFeaturedList: boolean;
 
   setGeneralStore: <Key extends keyof GeneralStore>(params: {
     name: Key;
@@ -24,6 +29,11 @@ const useGeneralStore = create<GeneralStore>((set) => ({
   isLargeScreen: false,
   isMobileScreen: false,
   isTabScreen: false,
+  showHeroCountries: false,
+  isLoading: false,
+  selectedState: "",
+  selectedFeatured: "",
+  showFeaturedList: false,
 
   setGeneralStore: ({ name, value }) =>
     set(() => ({
@@ -45,6 +55,11 @@ const useGeneralStore = create<GeneralStore>((set) => ({
       isLargeScreen: false,
       isMobileScreen: false,
       isTabScreen: false,
+      showHeroCountries: false,
+      isLoading: false,
+      selectedState: "",
+      selectedFeatured: "",
+      showFeaturedList: false,
     })),
 }));
 

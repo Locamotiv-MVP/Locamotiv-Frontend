@@ -1,7 +1,6 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Shrikhand", "Fraunces" "DM Sans",
     sans-serif;
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-width: none;
@@ -14,6 +13,50 @@ body {
   padding: 0;
   margin: 0;
 }
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+input {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(93 92 92 / 0.4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(93 92 92 / 0.4)
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(93 92 92 / 0.4) transparent;
+}
+
 
 #root {
   background: linear-gradient(rgb(10, 10, 10),
@@ -31,5 +74,7 @@ body {
   padding: 0;
   position: relative;
   overflow: hidden;
-  flex: 1
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
