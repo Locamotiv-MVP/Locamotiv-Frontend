@@ -4,7 +4,7 @@ import useGeneralStore from "../store/general";
 import React from "react";
 
 const Header = () => {
-  const { isLargeScreen, isTabScreen } = useGeneralStore();
+  const { isLargeScreen, isMobileScreen } = useGeneralStore();
 
   return (
     <div className="header">
@@ -23,17 +23,20 @@ const Header = () => {
       </div>
 
       <div className="header-buttons-container">
-        <div className="header-button-premium">
-          <Crown className="header-button-premium-icon" />
-          <p className="header-button-premium-text">Premium</p>
-        </div>
+        {!isMobileScreen && (
+          <div className="header-button-premium">
+            <Crown className="header-button-premium-icon" />
+            <p className="header-button-premium-text">Premium</p>
+          </div>
+        )}
 
-        {isTabScreen && (
+        {!isLargeScreen && (
           <div className="header-button-login">
             <LogInIcon className="header-button-login-icon" />
             <p className="header-button-login-text">Login / Sign Up</p>
           </div>
         )}
+
         {isLargeScreen && (
           <React.Fragment>
             <div className="header-button-signup">

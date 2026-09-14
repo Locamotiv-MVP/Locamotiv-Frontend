@@ -45,12 +45,11 @@ const HeroLocation = () => {
         zIndex: 20,
         position: "absolute",
         top: "5px",
-        left: "35px",
+        left: "12px",
         background: "transparent",
         display: "flex",
         flexDirection: "column",
         gap: "3px",
-
         minHeight: "fit-content",
       }}
       ref={locationRef}
@@ -58,7 +57,6 @@ const HeroLocation = () => {
       <div
         style={{
           zIndex: 20,
-
           maxWidth: "fit-content",
           maxHeight: "25px",
           background: "rgb(0 0 0 / 0.9)",
@@ -66,6 +64,9 @@ const HeroLocation = () => {
         }}
         className="header-button-signup"
         onClick={() => {
+          setSearched("");
+
+          setSearchResult([]);
           setGeneralStore({
             name: "showHeroCountries",
             value: !showHeroCountries,
