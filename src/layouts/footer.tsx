@@ -16,7 +16,9 @@ const Footer = () => {
             className={
               currentPage === "/" ||
               currentPage === "/discover" ||
-              currentPage === ""
+              currentPage === "" ||
+              currentPage?.startsWith("/discover/events/") ||
+              currentPage?.startsWith("/discover/venues/")
                 ? "footer-button-icon-active"
                 : "footer-button-icon"
             }
@@ -25,7 +27,9 @@ const Footer = () => {
             className={
               currentPage === "/" ||
               currentPage === "/discover" ||
-              currentPage === ""
+              currentPage === "" ||
+              currentPage?.startsWith("/discover/events/") ||
+              currentPage?.startsWith("/discover/venues/")
                 ? "footer-button-text-active"
                 : "footer-button-text"
             }
