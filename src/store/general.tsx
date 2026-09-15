@@ -31,7 +31,7 @@ const useGeneralStore = create<GeneralStore>((set) => ({
   isTabScreen: false,
   showHeroCountries: false,
   isLoading: false,
-  selectedState: "lagos",
+  selectedState: "",
   selectedFeatured: "",
   showFeaturedList: false,
 
