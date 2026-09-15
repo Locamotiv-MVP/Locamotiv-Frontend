@@ -94,10 +94,10 @@ const TicketCheckout = () => {
 
         <div className="event-details-page-second-section-header-body">
           <div
-            style={{ border: "1px solid rgba(56, 227, 73, 0.2)" }}
-            className={
-              "event-details-page-second-section-header-body-content-custom"
-            }
+            style={{
+              border: "1px solid rgba(56, 227, 73, 0.2)",
+            }}
+            className="event-details-page-second-section-header-body-content-custom"
           >
             <div className="event-details-page-second-section-header-body-content-container">
               <div className="event-details-page-second-section-header-body-content-text-container">
@@ -216,10 +216,10 @@ const TicketCheckout = () => {
           </div>
 
           <div
-            className={
-              "event-details-page-second-section-header-body-content-custom"
-            }
-            style={{ border: "1px solid rgba(245, 34, 34, 0.2)" }}
+            className="event-details-page-second-section-header-body-content-custom"
+            style={{
+              border: "1px solid rgba(245, 34, 34, 0.2)",
+            }}
           >
             <div className="event-details-page-second-section-header-body-content-container">
               <div className="event-details-page-second-section-header-body-content-text-container">
@@ -385,11 +385,7 @@ const TicketCheckout = () => {
       <div className="event-details-page-second-section-header-line"></div>
 
       <div className="event-details-page-second-section-header-body">
-        <div
-          className={
-            "event-details-page-second-section-header-body-content-custom"
-          }
-        >
+        <div className="event-details-page-second-section-header-body-content-custom">
           <div className="event-details-page-second-section-header-ticket-total">
             <p
               style={{

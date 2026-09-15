@@ -3,14 +3,19 @@ import Hero from "../components/hero";
 import { CalendarPlus, Image, MapPin } from "lucide-react";
 import useGeneralStore from "../store/general";
 import React, { useEffect, useRef, useState } from "react";
-import { featuredCategories } from "../utils/constants";
+import {
+  featuredCategories,
+  testEventsDetails,
+  testVenuesDetails,
+} from "../utils/constants";
 import MajorEvent from "../components/majorEvent";
 import Event from "../components/event";
 import DiscoverFooterAction from "../components/discoverFooterAction";
 
 const Discover = () => {
-  const { isMobileScreen, showFeaturedList, setGeneralStore } =
+  const { isMobileScreen, showFeaturedList, selectedState, setGeneralStore } =
     useGeneralStore();
+
   const featuredListRef = useRef<any>(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -67,9 +72,21 @@ const Discover = () => {
               }
               className="discover-content-fotter-list-container"
             >
-              {[1, 2, 3]?.map((_: any, idx: number) => (
-                <Event idx={idx} />
-              ))}
+              {testEventsDetails[selectedState?.toLowerCase()]
+                ?.filter((evnt: any) => evnt?.isFeatured)
+                ?.map((event: any, idx: number) => (
+                  <Event
+                    idx={idx}
+                    name={event?.name}
+                    location={event?.location}
+                    locationLink={event?.locationLink}
+                    category={event?.category}
+                    eventPathType={event?.eventPathType}
+                    isFeatured={true}
+                    date={event?.date}
+                    picture={event?.picture}
+                  />
+                ))}
 
               <div
                 style={{
@@ -105,9 +122,27 @@ const Discover = () => {
                 ))}
               </div>
 
-              {[1, 2, 3]?.map((_: any, idx: number) => (
-                <Event idx={idx} eventPathType="events" />
-              ))}
+              {testEventsDetails[selectedState?.toLowerCase()]
+                ?.filter((evnt: any) =>
+                  selectedCategory?.toLowerCase() === "all"
+                    ? evnt?.category
+                    : evnt?.categories?.includes(
+                        selectedCategory?.toLowerCase(),
+                      ),
+                )
+                ?.map((event: any, idx: number) => (
+                  <Event
+                    idx={idx}
+                    name={event?.name}
+                    location={event?.location}
+                    locationLink={event?.locationLink}
+                    category={event?.category}
+                    eventPathType={event?.eventPathType}
+                    isFeatured={event?.isFeatured}
+                    date={event?.date}
+                    picture={event?.picture}
+                  />
+                ))}
             </div>
           </div>
 
@@ -138,9 +173,21 @@ const Discover = () => {
               }
               className="discover-content-fotter-list-container"
             >
-              {[1, 2, 3]?.map((_: any, idx: number) => (
-                <Event idx={idx} eventPathType="venues" />
-              ))}
+              {testVenuesDetails[selectedState?.toLowerCase()]?.map(
+                (event: any, idx: number) => (
+                  <Event
+                    idx={idx}
+                    name={event?.name}
+                    location={event?.location}
+                    locationLink={event?.locationLink}
+                    category={event?.category}
+                    eventPathType={event?.eventPathType}
+                    isFeatured={true}
+                    date={event?.date}
+                    picture={event?.picture}
+                  />
+                ),
+              )}
             </div>
           </div>
 

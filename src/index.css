@@ -3,6 +3,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
   scrollbar-width: none;
   overflow: hidden;
   /* background: linear-gradient(90deg, #140724 0%, #150627 100%); */
