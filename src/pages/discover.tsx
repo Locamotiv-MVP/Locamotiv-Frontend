@@ -72,7 +72,11 @@ const Discover = () => {
               }
               className="discover-content-fotter-list-container"
             >
-              {testEventsDetails[selectedState?.toLowerCase()]
+              {testEventsDetails[
+                selectedState?.length > 0
+                  ? selectedState?.toLowerCase()
+                  : "lagos"
+              ]
                 ?.filter((evnt: any) => evnt?.isFeatured)
                 ?.map((event: any, idx: number) => (
                   <Event
@@ -122,7 +126,11 @@ const Discover = () => {
                 ))}
               </div>
 
-              {testEventsDetails[selectedState?.toLowerCase()]
+              {testEventsDetails[
+                selectedState?.length > 0
+                  ? selectedState?.toLowerCase()
+                  : "lagos"
+              ]
                 ?.filter((evnt: any) =>
                   selectedCategory?.toLowerCase() === "all"
                     ? evnt?.category
@@ -173,21 +181,23 @@ const Discover = () => {
               }
               className="discover-content-fotter-list-container"
             >
-              {testVenuesDetails[selectedState?.toLowerCase()]?.map(
-                (event: any, idx: number) => (
-                  <Event
-                    idx={idx}
-                    name={event?.name}
-                    location={event?.location}
-                    locationLink={event?.locationLink}
-                    category={event?.category}
-                    eventPathType={event?.eventPathType}
-                    isFeatured={true}
-                    date={event?.date}
-                    picture={event?.picture}
-                  />
-                ),
-              )}
+              {testVenuesDetails[
+                selectedState?.length > 0
+                  ? selectedState?.toLowerCase()
+                  : "lagos"
+              ]?.map((event: any, idx: number) => (
+                <Event
+                  idx={idx}
+                  name={event?.name}
+                  location={event?.location}
+                  locationLink={event?.locationLink}
+                  category={event?.category}
+                  eventPathType={event?.eventPathType}
+                  isFeatured={true}
+                  date={event?.date}
+                  picture={event?.picture}
+                />
+              ))}
             </div>
           </div>
 
