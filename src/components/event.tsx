@@ -1,9 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import useGeneralStore from "../store/general";
-import MajorEventImage1 from "../assets/major-event-1.avif";
 import { CalendarClockIcon, ExternalLink, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const Event = (props: { idx?: number; eventPathType?: string }) => {
+const Event = (props: {
+  idx?: number;
+  eventPathType?: string;
+  category: string;
+  isFeatured: boolean;
+  picture: any;
+  name: string;
+  location: string;
+  locationLink?: string;
+  date: string;
+}) => {
   const { isTabScreen, isMobileScreen } = useGeneralStore();
   const navigate = useNavigate();
 
@@ -41,9 +51,9 @@ const Event = (props: { idx?: number; eventPathType?: string }) => {
         }}
       >
         <p style={{ display: "flex" }} className="page-text-badge-distance">
-          Nightlife
+          {props.category}
         </p>
-        <p className="page-text-badge">⭐ Featured</p>
+        {props.isFeatured && <p className="page-text-badge">⭐ Featured</p>}
       </div>
 
       <div
@@ -65,7 +75,7 @@ const Event = (props: { idx?: number; eventPathType?: string }) => {
       >
         <img
           style={{ maxHeight: "100%", width: "100%" }}
-          src={MajorEventImage1}
+          src={props?.picture}
           alt="Event Image"
         />
       </div>
@@ -83,7 +93,7 @@ const Event = (props: { idx?: number; eventPathType?: string }) => {
           }}
           className="discover-major-event-text"
         >
-          Sippa Social
+          {props.name}
         </p>
         <div
           style={{
@@ -111,23 +121,27 @@ const Event = (props: { idx?: number; eventPathType?: string }) => {
                 cursor: "pointer",
               }}
               onClick={() => {
-                window.open(
-                  "https://www.google.com/maps/search/Landmark+Beach+Landmark+Village+4+Water+Corporation+Dr+Victoria+Island,+Lagos+106104,+Lagos/@6.422201,3.445722,12z?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D",
-                  "_blank",
-                  "noopener,noreferrer",
-                );
+                if (props?.locationLink) {
+                  window.open(
+                    props?.locationLink,
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                }
               }}
               className="discover-major-event-text"
             >
-              Landmark Beach, Victoria Island, Lagos
+              {props?.location}
             </p>
             <ExternalLink
               onClick={() => {
-                window.open(
-                  "https://www.google.com/maps/search/Landmark+Beach+Landmark+Village+4+Water+Corporation+Dr+Victoria+Island,+Lagos+106104,+Lagos/@6.422201,3.445722,12z?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D",
-                  "_blank",
-                  "noopener,noreferrer",
-                );
+                if (props?.locationLink) {
+                  window.open(
+                    props?.locationLink,
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                }
               }}
               style={{
                 width: "15px",
@@ -150,9 +164,7 @@ const Event = (props: { idx?: number; eventPathType?: string }) => {
               className="header-button-premium-icon"
             />
             {"  "}
-            <p className="discover-major-event-text">
-              June 26, 2026 - 10:45 pm.
-            </p>
+            <p className="discover-major-event-text">{props?.date}</p>
           </div>
         </div>
 
